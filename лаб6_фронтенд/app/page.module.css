@@ -1,0 +1,149 @@
+/* page.module.css */
+
+/* Цветовая палитра:
+   #93B5C6 — нежно-серо-голубой (фон/нейтральный)
+   #DDEDAA — светло-зелёный (фон акцент / hover)
+   #F0CF65 — солнечный жёлтый (акцент / кнопки)
+   #D7816A — кораллово-розовый (вторичный акцент)
+   #BD4F6C — глубокий розово-красный (важные элементы / CTA)
+*/
+
+/* Общие сбросы и настройки */
+.header,
+.navigationList,
+.perfumesList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ——— Header ——— */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background-color: #685044;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navigationList {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navigationItem a,
+.navigationItem svg {
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.navigationItem a:hover,
+.navigationItem svg:hover {
+  color: #BD4F6C;
+}
+
+/* ——— Main ——— */
+
+
+/* ——— Perfume Grid ——— */
+.perfumesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* ——— Card переопределение Ant Design ——— */
+/* Используем CSS Modules, чтобы избежать глобального влияния */
+.cardRoot {
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #fff;
+}
+
+.cardRoot:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.cardCover img {
+  border-radius: 8px 8px 0 0 !important;
+  height: 280px !important;
+  object-fit: cover !important;
+  width: 100% !important;
+  background-color: #f9f9f9;
+}
+
+.cardBody {
+  padding: 1rem !important;
+  text-align: center;
+}
+
+.cardBody p:first-of-type {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0.5rem 0 0.25rem;
+  line-height: 1.4;
+}
+
+.cardBody p:last-of-type {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #BD4F6C;
+  margin: 0;
+}
+
+/* ——— Footer (оставим заглушку, но стильно) ——— */
+.footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  text-align: center;
+  color: #666;
+  font-size: 0.875rem;
+  border-top: 1px solid #eee;
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navigation {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .navigationList {
+    gap: 1rem;
+  }
+
+  .perfumesList {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfumesList {
+    grid-template-columns: 1fr;
+  }
+}
